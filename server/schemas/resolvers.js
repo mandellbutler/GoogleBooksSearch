@@ -1,4 +1,4 @@
-const { USER } = require('../models');
+const { User } = require('../models');
 
 const resolvers = {
   Query: {
@@ -26,13 +26,10 @@ const resolvers = {
         }
       );
     },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
-    },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
+    removeBook: async (parent, { bookId }, context) => {
+      return User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { savedBooks: bookId } },
         { new: true }
       );
     },

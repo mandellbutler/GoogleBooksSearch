@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String!
     email: String!
-    password: String!
+    bookCount: Int
     savedBooks: [Book]
   }
 
@@ -30,3 +30,4 @@ module.exports = typeDefs;
 
 
 //ADD LOGIN AUTHENICATION QUERY LINES 17 THROUGH.....
+//POSSIBLY UPDATE MUTATION, QUERIES ETC
