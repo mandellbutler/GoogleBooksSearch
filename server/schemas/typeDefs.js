@@ -23,6 +23,11 @@ const typeDefs = gql`
     user: User
   }
 
+  type Query {
+    users: [User]!
+    user(userId: ID!): User
+  }
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
@@ -32,7 +37,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-
-
-//ADD LOGIN AUTHENICATION QUERY LINES 17 THROUGH.....
-//POSSIBLY UPDATE MUTATION, QUERIES ETC
