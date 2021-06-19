@@ -37,7 +37,7 @@ const resolvers = {
       return { token, user };
     },
 
-    addBook: async (parent, args, context) => {
+    saveBook: async (parent, args, context) => {
       return User.findOneAndUpdate(
         { _id: context.user._id },
         {
@@ -48,9 +48,9 @@ const resolvers = {
         }
       );
     },
-    removeUser: async (parent, { userId }) => {
-      return User.findOneAndDelete({ _id: userId });
-    },
+    // removeUser: async (parent, { userId }) => {
+    //   return User.findOneAndDelete({ _id: userId });
+    // },
     removeBook: async (parent, { bookId }, context) => {
       return User.findOneAndUpdate(
         { _id: context.user._id },
